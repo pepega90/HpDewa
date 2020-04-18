@@ -1,0 +1,25 @@
+<%- include('../include/top.ejs') %>
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+    <%- include('../include/navbar.ejs') %>
+    <main>
+    <% if(errorMsg) { %>
+        <div class='errMsg'>
+            <h1><%= errorMsg %></h1>
+        </div>
+    <% } %>
+    <form class="login-form" action="/login" novalidate method="POST">
+        <div class="login-group">
+            <label for="email">E-Mail : </label> <br>
+            <input value="<%= oldInput.email %>" type="email" name="email">
+        </div>
+        <div class="login-group">
+            <label for="password">Password : </label> <br>
+            <input value="<%= oldInput.password %>" type="password" name="password">
+        </div>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+        <button type="submit" class="loginBtn">Login</button>
+    </form>
+</main>
+<%- include('../include/bottom.ejs') %>

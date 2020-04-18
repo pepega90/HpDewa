@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+.form-add {
+  padding: 2rem;
+  max-width: 500px;
+  margin: auto;
+}
+
+.form-control {
+  margin: 3rem 0;
+}
+
+.form-control input {
+  width: 450px;
+}
+
+.btn-add {
+  font-size: 16px;
+  background-color: cadetblue;
+  color: #ffffff;
+  border: none;
+  border-radius: 17px;
+  padding: 0.4rem;
+  cursor: pointer;
+}
+
+.admin-title {
+  padding: 1rem;
+}
+
+.admin-btn {
+  margin: 1.2rem 0;
+  padding: 10px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.control-product {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-edit {
+  font-family: 'Lato';
+  background-color: rgb(26, 150, 26);
+  color: #ffffff;
+  border: none;
+  border-radius: 15px;
+}
+
+.btn-delete {
+  font-family: 'Lato';
+  background-color: rgb(201, 60, 60);
+  color: #ffffff;
+  border: none;
+  border-radius: 15px;
+}
+
+/* LOGIN SECTION */
+
+.login-form {
+  width: 500px;
+  margin: 2.1rem auto;
+  text-align: center;
+}
+
+.login-group {
+  margin: 1.5rem 0;
+  font-size: 25px;
+}
+
+input[name='email'],
+input[name='password'] {
+  width: 240px;
+  border: 2px solid lightblue;
+}
+
+.loginBtn {
+  font-size: 20px;
+  background-color: #ffffff;
+  border: 2px solid cadetblue;
+  padding: 5px 10px;
+  color: cadetblue;
+  transition: all;
+  transition-duration: 300ms;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.loginBtn:hover {
+  background-color: cadetblue;
+  color: #ffffff;
+}
+
+.errMsg {
+  text-align: center;
+  margin: 2rem auto;
+  padding: 9px 1rem;
+  color: red;
+  background-color: #eee;
+  max-width: 400px;
+}
+
+.errMsg h1 {
+  font-size: 16px;
+}
+
+.invalid {
+  border: 2px solid red;
+}
+
+@media (max-width: 720px) {
+  .login-form {
+    width: 200px;
+  }
+
+  .add-input {
+    max-width: 300px;
+  }
+}

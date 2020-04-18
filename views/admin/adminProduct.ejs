@@ -1,0 +1,31 @@
+<%- include('../include/top.ejs') %>
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+    <%- include('../include/navbar.ejs') %>
+    <h1 class="admin-title">Admin Product</h1>
+    <section class="main-content">
+      <% if(casing.length > 0) { %>
+            <section class="barang">
+                <% casing.forEach(produk => { %>
+                  <div class="casing">
+                    <img src="<%= produk.imageUrl %>" alt="" class="img">
+                    <div class="detail">
+                      <h5 class="title-casing"><%= produk.product %></h5>
+                      <span class="price">Rp<%= produk.harga %></span>
+                      <div class="control-product">
+                          <a href="/admin/edit-product/<%= produk._id %>?editing=true" class="admin-btn btn-edit">Edit Product</a>
+                          <form action="/admin/delete-product/<%= produk._id %>" method="POST">
+                          <button type="submit" class="admin-btn btn-delete">Hapus Product</button>
+                          <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+               <% }); %>       
+            </section>
+            <% } else { %>
+                <h1 style="margin: auto">Tidak ada product admin!</h1>
+            <% } %>
+        </section>
+    <%- include('../include/bottom.ejs') %>

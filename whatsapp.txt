@@ -1,0 +1,20 @@
+https://api.whatsapp.com/send?phone=6281548601510&text=Saya%20ingin%20memesan%20<%= produk.product %>%2C%20harga%20%3A<%= produk.harga %>%20
+
+// Pagination index.ejs structure
+
+<section class='pagination'>
+  <% if(currentPage != 1 && previousPage != 1) { %>
+  <a href="?page=1">1</a>
+  <% } %>
+  <% if(hasPrevPage) { %>
+    <a href="?page=<%= previousPage %>"><%= previousPage %></a>
+    <% } %>
+  <a href="?page=<%= currentPage %>" class="active"><%= currentPage %></a>
+  <% if(hasNextPage) { %>
+  <a href="?page=<%= nextPage %>"><%= nextPage %></a>
+  <% } %>
+ 
+  <% if(lastPage !== currentPage && nextPage !== lastPage) { %>
+  <a href="?page=<%= lastPage %>"><%= lastPage %></a>
+  <% } %>
+</section>  

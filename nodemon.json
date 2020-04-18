@@ -1,0 +1,7 @@
+{
+  "env": {
+    "MONGO_USER": "aji",
+    "MONGO_PASSWORD": "devikinal90",
+    "MONGO_DEFAULT_DATABASE": "hpDewaShop"
+  }
+}

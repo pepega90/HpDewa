@@ -1,0 +1,30 @@
+<%- include('../include/top.ejs') %>
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+    <%- include('../include/navbar.ejs') %>
+    <% if(errorMsg) { %>
+        <div class='errMsg'>
+            <h1><%= errorMsg %></h1>
+        </div>
+    <% } %>
+    <form class="form-add" action="/admin/<% if(editing) { %>edit-product<% } else { %>add-product <%} %>" method="POST" enctype="multipart/form-data">
+        <div class="form-control">
+            <label for="nama">Nama Product :</label> <br>
+            <input type="text" class="add-input" name="nama" value="<% if(editing || mistake) { %> <%= produk.product %> <% } %>">
+        </div>
+        <div class="form-control">
+            <label for="image">Image :</label> <br>
+            <input type="file" class="add-input" name="image" id="image">
+        </div>
+        <div class="form-control">
+            <label for="harga">Harga :</label> <br>
+            <input type="number" class="add-input" step="0.001" name="harga" value="<% if(editing || mistake) { %> <%= produk.harga %> <% } %>">
+        </div>
+        <% if (editing) { %>
+            <input type="hidden" value="<%= produk._id %>" name="productId">
+        <% } %>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+        <button type="submit" class="btn-add"><% if(editing) { %> Edit Product <% } else { %> Add Product <% } %></button>
+    </form>
+<%- include('../include/bottom.ejs') %>

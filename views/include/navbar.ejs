@@ -1,0 +1,36 @@
+<nav class="pepega">
+  <div class="logo-title">
+    <h1>Hp Dewa</h1>
+  </div>
+  <h2 class="burger">Menu</h2>
+  <div class="menu-navbar">
+    <ul class="nav">
+      <h1 class="tutup">X</h1>
+      <li class="nav-li"><a class="nav-link" href="/">Home</a></li>
+      <% if(isMasuk) { %>
+      <li class="nav-li">
+        <a class="nav-link" href="/admin/add-product">Add Product</a>
+      </li>
+      <li class="nav-li">
+        <a class="nav-link" href="/admin/product">Admin Product</a>
+      </li>
+      <% } %>
+      <div class="admin-control">
+        <ul class="nav">
+          <% if(isMasuk) { %>
+          <li class="nav-li">
+            <form action="/logout" method="POST">
+              <button type="submit" class="logout">
+                Logout
+              </button>
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+            </form>
+          </li>
+          <% } else { %>
+          <li class="nav-li"><a href="/login" class="nav-link">Login</a></li>
+          <% } %>
+        </ul>
+      </div>
+    </ul>
+  </div>
+</nav>

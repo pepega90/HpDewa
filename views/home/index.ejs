@@ -1,0 +1,99 @@
+<%- include('../include/top.ejs') %>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <%- include('../include/navbar.ejs') %>
+  <header class="head">
+    <div class="welcome">
+    <h1 class="display-4">
+      Selamat datang di hp dewa
+    </h1>
+    <p class="title-desc">Tempat jual casing terbaik sejagat raya</p>
+  </div>
+  </header>
+
+  <div class="cari-casing">
+    <h2 class="title-form">Cari casing favorite anda!</h2>
+    <div class="form">
+      <input type="text" class="input">
+    </div>
+  </div>
+  
+  <section class="main-content">
+    <% if(casing.length > 0) { %>
+    <section class="barang">
+        <% casing.forEach(produk => { %>
+          <div class="casing">
+            <img src="<%= produk.imageUrl %>" alt="<%= produk.product %>" class="img">
+            <div class="detail">
+              <h5 class="title-casing"><%= produk.product %></h5>
+              <span class="price">Rp<%= produk.harga %></span>
+              <div class="btn-control">
+                <button class="belikan btn-beli">Beli Sekarang</button>
+              </div>
+            </div>
+          </div>
+       <% }); %>
+      </section>
+      <% } else { %>
+        <h1 style="margin: auto">Tidak ada product!</h1>
+      <% } %>
+    <aside class="sidebar">
+      <div class="side">
+        <div class="sidebar-logo">
+          <h2 class="title-sidebar">Follow sosial media kami</h2>
+          <img src="/images/logo.png" class="rounded-circle" alt="hpdewa_id">
+        </div>
+        <ul class="sosial-media">
+          <li><a href="https://www.instagram.com/hpdewa_id/?hl=id">Instagram</a></li>
+        </ul>
+      </div>
+    </aside>
+</section>
+
+<section id="total">
+<div class="sub-total">
+    <div class="total-div"></div>
+  <div class="total-control">
+    <h3 class="total-harga"></h3>
+    <button class="tombol-cart btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Pesan</button>
+  </div>
+</div>
+<footer style="position: relative; text-align: right; margin-right: 1em">
+  Made with <span style="color: #e25555;">&#9829;</span> by Aji Mustofa
+</footer>
+</section>
+
+<!-- MODAL SECTION -->
+<div class="container">
+  <div class="modal fade bd-example-modal-lg" id="muncul-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-form">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="pepega-modal"></div>
+                  <div class="form-group">
+                          <label for="nama">Nama</label>
+                          <input type="text" name="nama" class="form-control" id="nama" aria-describedby="emailHelp">
+                  </div>
+                  <div class="form-group">
+                          <label for="telepon">No Telepon/Whatsapp</label>
+                          <input type="text" name="telepon" class="form-control" id="telepon">
+                  </div>
+                  <div class="form-group">
+                          <label for="alamat">Alamat</label>
+                          <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="10"></textarea>
+                  </div>
+                  <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between" class="modal-control">            
+                    <a href="" class="pesan-modal btn btn-outline-success">Submit</a>     
+                    <em>Note : Untuk informasi lebih lanjut anda bisa langsung menanyakan ketika sedang memesan</em>
+                  </div>      
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+  <%- include('../include/bottom.ejs') %>

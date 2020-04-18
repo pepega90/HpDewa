@@ -1,0 +1,44 @@
+function cartItem(e) {
+  const tombol = e.target;
+  const sub_total = tombol.parentElement.parentElement;
+  const div_total = sub_total.querySelectorAll('.total-div div.case');
+  for (let i = 0; i < div_total.length; i++) {
+    const case_div = div_total[i];
+    const title = case_div.getElementsByClassName('title')[0].textContent;
+    const quantity = case_div.getElementsByClassName('quantity')[0].value;
+    modalBarang(title, quantity);
+  }
+}
+
+function modalBarang(title, quantity) {
+  const divElement = document.createElement('div');
+  const pepega_modal = document.querySelector('.pepega-modal');
+  const contentPepega = `
+  <div class="modal-pepega">
+    <ul>
+      <li class="title-barang">${title}</li>
+      <li class="jumlah-barang">${quantity}</li>
+    </ul>
+</div>  
+  `;
+  divElement.innerHTML = contentPepega;
+  pepega_modal.append(divElement);
+}
+
+function beliCasing() {
+  const modal_pepega = document.querySelectorAll(
+    '.pepega-modal div.modal-pepega'
+  );
+  let titleArr = [];
+  let quantityArr = [];
+  modal_pepega.forEach(e => {
+    const title = e.getElementsByClassName('title-barang')[0].textContent;
+    const quantity = e.getElementsByClassName('jumlah-barang')[0].textContent;
+    titleArr.push(title);
+    quantityArr.push(quantity);
+    const api = encodeURI(
+      `https://api.whatsapp.com/send?phone=6281548601510&text=Ingin pesan ${titleArr} sejumlah ${quantityArr}`
+    );
+    pesan_modal.setAttribute('href', api);
+  });
+}
