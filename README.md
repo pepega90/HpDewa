@@ -7,15 +7,17 @@ Before you use it, you have to change the file Cloudinary config API that is in 
 
 ### Installing
 
-typing npm install first for downloading all dependencies, and then npm start for start the program
+typing npm install first for downloading all dependencies 
 
 ```
 npm install
 ```
 
-## Authors
+and then npm start for start the program
 
-Aji Mustofa follow my instagram @pepega90
+```
+npm start
+```
 
 ## License
 
